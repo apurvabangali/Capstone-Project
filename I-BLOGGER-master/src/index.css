@@ -1,0 +1,30 @@
+/* .main{
+  background: "black";
+  color: "#fff";
+  display: "flex";
+  flex-direction: "row";
+  box-sizing: "border-box";
+}
+.img {
+  width: 100;
+  height: 100;
+  margin-top: "-1em";
+};
+.search {
+margin-top:10;
+width:300;
+height:50;
+ background:'rgba(;0;0;0.5)';
+  background-color:'transparent'
+
+};
+.com {
+  display: "flex";
+  margin-left: 750;
+  margin-top: -55;
+  cursor:'pointer'
+};
+.p {
+  padding: 15;
+  margin-left:'5px';
+}; */

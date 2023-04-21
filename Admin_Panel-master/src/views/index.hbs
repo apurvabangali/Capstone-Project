@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>I Blogger Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/vendors/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/vendors/chartist/chartist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- End layout styles -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="shortcut icon" href="/images/logo.png" />
+  <style>
+    .class {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 120px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+  <div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+    {{>navbar}}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      {{>slidebar}}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          {{#if message}}
+          <div style="text-align: center" class="alert alert-{{message.type}}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{message.intro}}</strong> {{message.message}}
+          </div>
+          {{/if}}
+          <div class="row">
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total Blogs Chart</h4>
+                  <div class="aligner-wrapper">
+                    <canvas id="myChart" height="210"></canvas>
+                    <div class="wrapper d-flex flex-column justify-content-center absolute absolute-center"><br>
+                      <h2 class="text-center mb-0 font-weight-bold">{{records.allblogscount}}</h2>
+                      <small class="d-block text-center text-muted  font-weight-semibold mb-0">Total Blogs</small>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body performane-indicator-card">
+                  <div class="d-sm-flex">
+                    <h4 class="card-title flex-shrink-1">Highest Blog Uploaded User Chart</h4>
+                  </div>
+
+                  <div style="height: 3px; width:40vw">
+                    <canvas id="mybarchart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Quick Action Toolbar Starts-->
+          <div class="row quick-action-toolbar">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-header d-block d-md-flex">
+                  <h5 class="mb-0">Quick Actions</h5>
+
+                </div>
+                <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
+                  <div class="col-sm-6 col-md-6 p-6 text-center btn-wrapper">
+                    <button type="button" onclick="window.location='register'" class="btn px-0"> <i
+                        class="icon-user mr-2"></i> Add User</button>
+                  </div>
+                  <div class="col-sm-6 col-md-6 p-6 text-center btn-wrapper">
+                    <button type="button" onclick="window.location='CreateBlog'" class="btn px-0"><i
+                        class="icon-docs mr-2"></i> Create Blog</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Quick Action Toolbar Ends-->
+
+
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="d-sm-flex align-items-baseline report-summary-header">
+                        <h5 class="font-weight-semibold">Report Summary</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row report-inner-cards-wrapper">
+                    <div class=" col-md -6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <a href="viewUser"><span class="report-title">USERS</span></a>
+                        <h4>{{records.usercount}}</h4>
+                        <span class="report-count"> </span>
+                      </div>
+                      <div class="inner-card-icon bg-info" style="border-radius: 50%">
+                        <i class="icon-people"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <a href="unverify#verifiedblog"><span class="report-title">VERIFIED BLOGS</span></a>
+                        <h4>{{records.totalverifyblog}}</h4>
+                        <span class="report-count"></span>
+                      </div>
+                      <div class="inner-card-icon bg-success" style="border-radius: 50%">
+                        <i class="icon-check"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <a href="unverify#unverified"><span class="report-title">UNVERIFIED BLOGS</span></a>
+                        <h4>{{records.totalUnverified}}</h4>
+                        <span class="report-count"> </span>
+                      </div>
+                      <div class="inner-card-icon bg-danger" style="border-radius: 50%">
+                        <i class="icon-close"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <a href="unverify#pendingblogs"><span class="report-title"> PENDING BLOGS</span></a>
+                        <h4>{{records.totalpendingblog}}</h4>
+                        <span class="report-count"> </span>
+                      </div>
+                      <div class="inner-card-icon bg-warning" style="border-radius: 50%">
+                        <i class="icon-exclamation"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-sm-flex align-items-center mb-4">
+                    <h4 class="card-title mb-sm-0">Recently Added User </h4>
+                    <a href="/viewUser" class="text-dark ml-auto mb-3 mb-sm-0"> View all User</a>
+                  </div>
+                  <div class="table-responsive border rounded p-1">
+                    <table class="table table-success table-striped">
+                      <thead>
+                        <tr class="table-active">
+                          <th class="font-weight-bold">User ID</th>
+                          <th class="font-weight-bold">Name</th>
+                          <th class="font-weight-bold">Created at</th>
+                          <th class="font-weight-bold">Email Id</th>
+                          <th class="font-weight-bold">Mobile No</th>
+                          <th class="font-weight-bold">Status</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each topuser}}
+                        <tr>
+                          <td>
+
+                            {{#if image}}
+                            <img class="img-sm rounded-circle" src="{{image}}" alt="profile image"> {{username}}
+                            {{else}}
+                            <img class="img-sm rounded-circle" src="/images/DefaultUser.png" alt="profile image">
+                            {{username}}
+                            {{/if}}
+                          </td>
+                          <td>{{name}}</td>
+                          <td class="class">{{createdAt}}</td>
+                          <td>{{email}}</td>
+                          <td>{{phone}}</td>
+                          <td>
+                            <div class="badge badge-success p-2">Active</div>
+                          </td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-sm-flex align-items-center mb-4">
+                    <h4 class="card-title mb-sm-0">Highest Blog Uploaded User </h4>
+                    <a href="/viewUser" class="text-dark ml-auto mb-3 mb-sm-0"> View all User</a>
+                  </div>
+                  <div class="table-responsive border rounded p-1">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th class="font-weight-bold">User ID</th>
+                          <th class="font-weight-bold">Name</th>
+                          <th class="font-weight-bold">Email Id</th>
+                          <th class="font-weight-bold">Mobile NO</th>
+                          <th class="font-weight-bold">Total Blogs</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each user}}
+                        <tr>
+                          <td>
+
+                            {{#if image}}
+                            <img class="img-sm rounded-circle" src="{{image}}" alt="profile image"> {{username}}
+                            {{else}}
+                            <img class="img-sm rounded-circle" src="/images/DefaultUser.png" alt="profile image">
+                            {{username}}
+                            {{/if}}
+                          </td>
+                          <td>{{name}}</td>
+                          <td>{{email}}</td>
+                          <td>{{phone}}</td>
+                          <td>{{blog}}</td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          {{>footer}}
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+
+  <script src="/vendors/moment/moment.min.js"></script>
+  <script src="/vendors/daterangepicker/daterangepicker.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/js/dashboard.js"></script>
+
+
+  <script>
+    var Verified = [], Unverified = [], pending = []
+    async function dummyChart() {
+      await getDummyData();
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const config = {
+        type: 'doughnut',
+        data: {
+          labels: [
+            'Verified Blogs',
+            'Unverified Blogs',
+            'pending Blogs'
+          ],
+          datasets: [{
+            label: 'Blogs Summary',
+            data: [Verified, Unverified, pending],
+            backgroundColor: [
+              'rgb(50,205,50)',
+              'rgb(255, 99, 132)',
+              'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+          }]
+        }
+      };
+      const myChart = new Chart(ctx, config);
+    }
+
+    dummyChart()
+    async function getDummyData() {
+      const apiurl = "http://localhost:8080/chartdashboard"
+      const response = await fetch(apiurl)
+      const barChartData = await response.json()
+      const verifiedblog = barChartData.verified
+      const unverifiedblog = barChartData.unverified
+      const pendingblog = barChartData.pending
+
+      Verified = verifiedblog
+      Unverified = unverifiedblog
+      pending = pendingblog
+
+    }
+  </script>
+
+
+  <script>
+
+    var fname = [], fblog = [], sname = [], sblog = [], tname = [], tblog = [], frname = [], frblog = [], fifname = [], fifblog = []
+
+    async function dummyCharts() {
+      await getDummyDatas();
+      const ctx = document.getElementById('mybarchart').getContext('2d');
+      config = {
+        type: 'bar',
+        data: {
+          labels: [fname, sname, tname, frname, fifname],
+          datasets: [{
+            label: 'Blogs',
+            data: [fblog, sblog, tblog, frblog, fifblog],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "World Wine Production 2018"
+          }
+        }
+      }
+
+      const myChart = new Chart(ctx, config);
+    }
+
+    dummyCharts()
+    async function getDummyDatas() {
+      const apiurl = "http://localhost:8080/chartdashboard"
+      const responses = await fetch(apiurl)
+      const barChartData = await responses.json()
+      const blogs = barChartData.hbloguser
+      fname = blogs[0].name
+      fblog = blogs[0].blog
+      sname = blogs[1].name
+      sblog = blogs[1].blog
+      tname = blogs[2].name
+      tblog = blogs[2].blog
+      frname = blogs[3].name
+      frblog = blogs[3].blog
+      fifname = blogs[4].name
+      fifblog = blogs[4].blog
+
+    }
+  </script>
+  <script>
+    $(window).on('load', function () {
+
+      $('#js-preloader').addClass('loaded');
+
+    });
+  </script>
+  <!-- End custom js for this page -->
+</body>
+
+</html>

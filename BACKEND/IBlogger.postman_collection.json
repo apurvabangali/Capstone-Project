@@ -1,0 +1,1028 @@
+{
+	"info": {
+		"_postman_id": "ce53f077-fc07-4149-9cf0-bf062edd5676",
+		"name": "IBlogger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Insert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Axit\",\r\n    \"email\":\"Axit@gmail.com\",\r\n    \"gender\":\"male\",\r\n    \"phone\":9537294384,\r\n    \"username\":\"Axit\",\r\n    \"password\":\"Axit\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/register",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Axit\",\r\n    \"password\":\"Axit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/login",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/logout",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIew All User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/view",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIew User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/view/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"view",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Vivek\",\r\n    \"email\":\"Vivek@gmail.com\",\r\n    \"gender\":\"male\",\r\n    \"phone\":9537294384,\r\n    \"username\":\"Vivek\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/update/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"update",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Send Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"Roan@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/sendEmail",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"sendEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Forgot Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"Vivek@gmail.com\",\r\n    \"otp\":999999,\r\n    \"password\":\"Vivek\",\r\n    \"confirmPassword\":\"Vivek\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/forgotPass",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"forgotPass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Upload Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/ROHAN/OFFICE TASK/eBazar/producs/male (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/uploadImage/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"uploadImage",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/ROHAN/OFFICE TASK/eBazar/producs/female.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/updateImage/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"updateImage",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Delete Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/deleteImage/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"deleteImage",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/profile/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"profile",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Highest Blog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/highest",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"highest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User TOP 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/user/top",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"top"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Blog Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keyword\":\"other\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/user/search/622f78dbe30bf46ac997e103",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"user",
+						"search",
+						"622f78dbe30bf46ac997e103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile View All Blog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/profileBlog/622f7900e30bf46ac997e108",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"profileBlog",
+						"622f7900e30bf46ac997e108"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Blog6",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/ROHAN/OFFICE TASK/eBazar/producs/female.png"
+						},
+						{
+							"key": "discription",
+							"value": "Blog6",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "codding",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/insert/622f7900e30bf46ac997e108",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"insert",
+						"622f7900e30bf46ac997e108"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/view",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View Panding",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/pending",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"pending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View Verify",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/verify",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View Unverify",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/unverify",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"unverify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View All (user)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/viewAll/622f7900e30bf46ac997e108",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"viewAll",
+						"622f7900e30bf46ac997e108"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/views/622f7c18213727e76bc53f33",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"views",
+						"622f7c18213727e76bc53f33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View News Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/news",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View Sport Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/sport",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"sport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View Codding Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/codding",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"codding"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog View Others Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/other",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"other"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/delete/622f7e121783481c0e6a8168",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"delete",
+						"622f7e121783481c0e6a8168"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "check blog",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/ROHAN/OFFICE TASK/eBazar/producs/bag6.png"
+						},
+						{
+							"key": "discription",
+							"value": "check blog",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/update/622f7e121783481c0e6a8168",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"update",
+						"622f7e121783481c0e6a8168"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"verified\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/status/6232154fe87d4252961601c8",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"status",
+						"6232154fe87d4252961601c8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Like",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"62302ae55c08a2687f8e578b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/likeBlog/623027b8d2aac4d31fa4590c",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"likeBlog",
+						"623027b8d2aac4d31fa4590c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog UnLike",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"62302ae55c08a2687f8e578b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/unlike/623027b8d2aac4d31fa4590c",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"unlike",
+						"623027b8d2aac4d31fa4590c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Top 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/top",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"top"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Top 5 Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keyword\":\"Blog1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/topSearch",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"topSearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Top 5 short",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/blog/short",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"short"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keyword\":\"other\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/blog/search",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"blog",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact  Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"dd\",\r\n    \"email\":\"dd@gmail.com\",\r\n    \"subject\":\"error \",\r\n    \"message\":\" I found error in login time and contact us time\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/contact/insert",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"contact",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact View",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/contact/view",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"contact",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact View By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/contact/view/622f80b72747cfa614961a20",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"contact",
+						"view",
+						"622f80b72747cfa614961a20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/contact/delete/622f80b72747cfa614961a20",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"contact",
+						"delete",
+						"622f80b72747cfa614961a20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"rohan\",\r\n    \"comment\":\"this blog is awosom and it is very beautifull..\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/comment/add/622f7c2e213727e76bc53f37",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"comment",
+						"add",
+						"622f7c2e213727e76bc53f37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment View",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/comment/view/622f7c2e213727e76bc53f37",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"comment",
+						"view",
+						"622f7c2e213727e76bc53f37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/comment/delete/622f7c2e213727e76bc53f37",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"comment",
+						"delete",
+						"622f7c2e213727e76bc53f37"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "localhost:8000",
+			"type": "string"
+		}
+	]
+}

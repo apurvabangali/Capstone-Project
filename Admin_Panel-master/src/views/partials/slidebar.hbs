@@ -1,0 +1,85 @@
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a href="#" class="nav-link">
+        <div class="profile-image">
+          {{#if admin.image}}
+          <img class="img-xs rounded-circle" src="{{admin.image}}" alt="profile image">
+          <div class="dot-indicator bg-success"></div>
+          {{else}}
+          <img class="img-xs rounded-circle" src="/images/DefaultUser.png" alt="profile image">
+          <div class="dot-indicator bg-success"></div>
+          {{/if}}
+        </div>
+        <div class="text-wrapper">
+          <h6 class="profile-name">{{admin.name}}</h6>
+          <p class="designation">Administrator</p>
+        </div>
+
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard">
+        <span class="menu-title">Dashboard</span>
+        <i class="icon-screen-desktop menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/unverify">
+        <span class="menu-title">Approve Blog</span>
+        <i class="icon-check menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/viewVerifyBlog">
+        <span class="menu-title">All blogs</span>
+        <i class="icon-globe menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+        <span class="menu-title">Blogs Categories</span>
+        <i class="icon-grid menu-icon"></i>
+      </a>
+      <div class="collapse" id="auth">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/news"> News
+              <i class="fa fa-newspaper-o menu-icon" aria-hidden="true"></i></a></li>
+          <li class="nav-item"> <a class="nav-link" href="/sport"> Sports
+          <i class="fa fa-futbol-o menu-icon" aria-hidden="true"></i> </a></li>
+          <li class="nav-item"> <a class="nav-link" href="/coding"> Coding
+          <i class="fa fa-keyboard-o menu-icon"></i> </a></li>
+          <li class="nav-item"> <a class="nav-link" href="/other">Other
+          <i class="fa fa-object-group menu-icon"></i></a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/top">
+        <span class="menu-title">Top 10 Blogs</span>
+        <i class="fa fa-check-circle menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/viewUser">
+        <span class="menu-title">Users Table</span>
+        <i class="fa fa-table menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/viewAllcontect">
+        <span class="menu-title">Contact Us</span>
+        <i class="fa fa-address-book  menu-icon "></i>
+
+      </a>
+    </li>
+
+
+  </ul>
+</nav>

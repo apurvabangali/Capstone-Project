@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <link rel="stylesheet" href="/blog/fontawesome/css/all.min.css">
+  <!-- https://fontawesome.com/ -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <!-- https://fonts.google.com/ -->
+  <link href="/blog/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/blog/css/templatemo-xtra-blog.css" rel="stylesheet">
+  {{>header}}
+  <style>
+    .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      max-height: 140px;
+      min-height: 140px;
+      -webkit-line-clamp: 2;
+    }
+
+    .ellipsis1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 450px;
+      -webkit-line-clamp: 2;
+    }
+
+    .cards {
+      background-color: white;
+      min-width: 450px;
+      max-height: 900px;
+
+    }
+
+    .heightcard {
+      margin-left: 150px;
+    }
+     .divclass {
+      overflow: hidden;
+      min-height: 140px;
+      max-width: 400px; 
+      max-height: 140px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+  <div class="container-scroller">
+    <!-- partial:/partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex align-items-center">
+        <a class="navbar-brand brand-logo" href="/viewVerifyBlog">
+          <h6 style="color: aliceblue">I Blogger Management</h6>
+          {{!-- <img src="/images/logo.svg" alt="logo" class="logo-dark" /> --}}
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index"><img src="/images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+        <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome To I Blogger Management dashboard!</h5>
+        <ul class="navbar-nav navbar-nav-right ml-auto">
+
+
+          <form class="search-form d-none d-md-block" action="/search" method="post">
+            <i class="icon-magnifier"></i>
+            <input type="search" class="form-control" name="keyword" placeholder="Search Here" title="Search here">
+
+          </form>
+
+          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              {{#if admin.image}}
+              <img class="img-xs rounded-circle ml-2" src="{{admin.image}}" alt="Profile image"> <span
+                class="font-weight-normal"> {{admin.name}} </span></a>
+            {{else}}
+            <img class="img-xs rounded-circle ml-2" src="/images/DefaultUser.png" alt="Profile image"> <span
+              class="font-weight-normal"> {{admin.name}} </span></a>
+            {{/if}}
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                {{#if admin.image}}
+                <img class="img-md rounded-circle" src="{{admin.image}}" height="200px" width="200px"
+                  alt="Profile image">
+                {{else}}
+                <img class="img-md rounded-circle" src="/images/DefaultUser.png" alt="Profile image">
+                {{/if}}
+                <p class="mb-1 mt-3">{{admin.name}}</p>
+                <p class="font-weight-light text-muted mb-0"> {{admin.email}}</p>
+              </div>
+              <a href="/viewprofile/{{admin._id}}" class="dropdown-item"><i
+                  class="dropdown-item-icon icon-user text-primary"></i> My Profile </a>
+
+              <a href="/logout" class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>
+                <p>Sign Out</p>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:/partials/_sidebar.html -->
+      {{>slidebar}}
+      <!-- partial -->
+      <div class="main-panel">
+
+        <div class="content-wrapper">
+          {{#if message}}
+          <div style="text-align: center" class="alert alert-{{message.type}}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{message.intro}}</strong> {{message.message}}
+          </div>
+          {{/if}}
+
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">All Users Blogs</h4>
+                  <br>
+                  <a href="CreateBlog" class="btn btn-outline-primary btn-rounded btn-sm">Insert Blog</a>
+                  <br><br>
+                </div>
+              </div>
+            </div>
+
+            <div class="row tm-row heightcard ">
+              {{#each records}}
+              <article class="col-12 col-md-6 tm-post mt-3 cards">
+                {{#blog}}
+                <a href="/views/{{_id}}" style="text-decoration:none ; color:black"
+                  class="effect-lily tm-post-link tm-pt-60">
+                  <div class="tm-post-link-inner">
+
+                    <img src="{{image}}" height="200">
+                  </div>
+                  <span class="position-absolute tm-new-badge">New</span>
+                  <h2 class="tm-pt-30 tm-color-primary tm-post-title ellipsis1">{{title}}</h2>
+                </a>
+                
+                <div class="divclass" >
+                  {{{discription}}}
+                </div>
+                <div class="d-flex justify-content-between tm-pt-45">
+                  <span class="tm-color-primary">{{category}}</span>
+                  <span class="tm-color-primary">{{createDate}}</span>
+                </div>
+                <hr>
+                {{/blog}}
+                <div class="d-flex justify-content-between">
+                  <span>{{comment}} &nbsp&nbsp <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></span>
+                  {{#blog}}<span>{{like}} &nbsp&nbsp<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>
+                  </span>{{/blog}}
+                  <span>by {{user}}</span>
+
+                  {{#blog}}
+                  <a href="/editBlog/{{_id}}"><button type="button"
+                      class="btn btn-outline-success btn-rounded btn-sm"><i class="fa fa-edit"
+                        aria-hidden="true"></i></button></a>
+                  <a href="/delete/{{_id}}"><button class="btn btn-outline-danger btn-rounded btn-sm"><i
+                        class="fa fa-trash" aria-hidden="true"></i>
+                    </button></a>
+
+                  {{/blog}}
+                </div>
+                <hr class="tm-hr-primary">
+              </article>
+              {{/each}}
+
+            </div>
+
+
+            {{!-- <br> --}}
+          </div>
+
+        </div>
+
+        <!-- content-wrapper ends -->
+        <!-- partial:/partials/_footer.html -->
+        {{>footer}}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/misc.js"></script>
+  <!-- endinject -->
+  <script src="/blog/js/jquery.min.js"></script>
+  <script src="/blog/js/templatemo-script.js"></script>
+  <script>
+    $(window).on('load', function () {
+
+      $('#js-preloader').addClass('loaded');
+
+    });
+  </script>
+  <!-- Custom js for this page -->
+  <!-- End custom js for this page -->
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    
+</head>
+
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <div class="container-scroller">
+        <!-- partial:/partials/_navbar.html -->
+        {{>navbar}}
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:/partials/_sidebar.html -->
+            {{>slidebar}}
+            <!-- partial -->
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+                    {{#if message}}
+                    <div style="text-align: center" class="alert alert-{{message.type}}">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>{{message.intro}}</strong> {{message.message}}
+                    </div>
+                    {{/if}}
+
+                    <div class="row">
+                        <div class="col-lg-8 grid-margin stretch-card">
+                            <div class="card">
+
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:/partials/_footer.html -->
+                {{>footer}}
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script>
+    $(window).on('load', function() {
+
+        $('#js-preloader').addClass('loaded');
+
+    });
+  </script>
+</body>
+
+</html>

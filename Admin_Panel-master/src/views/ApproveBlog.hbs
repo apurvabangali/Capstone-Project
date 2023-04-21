@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{>header}}
+
+  <!--DataTable CDN-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <style>
+    .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 35px;
+      max-width: 200px;
+      -webkit-line-clamp: 2;
+    }
+   
+
+    .oneline {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+  <div class="container-scroller">
+    <!-- partial:/partials/_navbar.html -->
+    {{>navbar}}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:/partials/_sidebar.html -->
+      {{>slidebar}}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          {{#if message}}
+          <div style="text-align: center" class="alert alert-{{message.type}}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{message.intro}}</strong> {{message.message}}
+          </div>
+          {{/if}}
+
+          <div id="pendingblogs" class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">All Pending Blogs</h4>
+                  <br>
+                  <table id="dtBasicExample" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="font-weight: bold"> No </th>
+                        <th style="font-weight: bold"> Name </th>
+                        <th style="font-weight: bold"> Blog Title </th>
+                        <th style="font-weight: bold"> Image</th>
+                        <th style="font-weight: bold"> Category</th>
+                        <th style="font-weight: bold"> Description</th>
+                        <th style="font-weight: bold"> Status</th>
+                        <th style="font-weight: bold">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each records}}
+                      <tr>
+                        <td style="font-weight: bold">{{@index}}</td>
+                        <td>{{user}} </td>
+                        {{#blog}}
+                        <td class="ellipsis">{{title}} </td>
+                        <td> <img src="{{image}}" style="width: 50px; height: 50px; border-radius: 5px;"></td>
+                        <td>{{category}}</td>
+                        <td>
+                          <div class="ellipsis">
+                            {{{discription}}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="badge badge-warning p-2">Pending</div>
+                        </td>
+                        <td>
+                          <div class="oneline">
+                            <a href="/views/{{_id}}"><button type="button"
+                                class="btn btn-outline-primary btn-rounded btn-sm" style="margin-right: 5px;"><i
+                                  class="fa fa-eye" aria-hidden="true"></i></button></a>
+
+                            <form action="/updatestatus/{{_id}}" method="post">
+                              <input type="hidden" name="status" value="verified">
+                              <button type="submit" class="btn btn-outline-primary btn-rounded btn-sm"
+                                style="margin-right: 5px;"><i class="fa fa-check" aria-hidden="true"></i></button>
+                            </form>
+                            
+                            <form action="/updatestatus/{{_id}}" method="post">
+                              <input type="hidden" name="status" value="unverified">
+                              <button type="submit" class="btn btn-outline-danger btn-rounded btn-sm"
+                                style="margin-right: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button>
+                            </form>
+                          </div>
+
+                        </td>
+                      </tr>
+                      {{/blog}}
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="unverified" class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">All Unverified Blogs</h4>
+                  <br>
+
+                  <table id="Unverified" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="font-weight: bold"> No </th>
+                        <th style="font-weight: bold"> Name </th>
+                        <th style="font-weight: bold"> Blog Title </th>
+                        <th style="font-weight: bold"> Image</th>
+                        <th style="font-weight: bold"> Category</th>
+                        <th style="font-weight: bold"> Description</th>
+                        <th style="font-weight: bold"> Status</th>
+                        <th style="font-weight: bold">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each data}}
+                      <tr>
+                        <td style="font-weight: bold">{{@index}}</td>
+                        <td>{{user}} </td>
+                        {{#blog}}
+                        <td class="ellipsis">{{title}} </td>
+                        <td> <img src="{{image}}" style="width: 50px; height: 50px; border-radius: 5px;"></td>
+                        <td>{{category}}</td>
+                        <td>
+                          <div class="ellipsis">
+                            {{{discription}}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="badge badge-danger p-2">Unverified</div>
+                        </td>
+                        <td>
+                          <div class="oneline">
+                            <div>
+                              <a href="/views/{{_id}}"><button type="button"
+                                  class="btn btn-outline-primary btn-rounded btn-sm" style="margin-right: 5px;"><i
+                                    class="fa fa-eye" aria-hidden="true"></i></button></a>
+                            </div>
+                            <div>
+                              <form action="/updatestatus/{{_id}}" method="post">
+                                <input type="hidden" name="status" value="verified">
+                                <button type="submit" class="btn btn-outline-primary btn-rounded btn-sm"
+                                  style="margin-right: 5px;"><i class="fa fa-check" aria-hidden="true"></i></button>
+                              </form>
+                            </div>
+                            <div>
+                              <a href="/delete/{{_id}}"><button type="button"
+                                  class="btn btn-outline-danger btn-rounded btn-sm" style="margin-right: 5px;"><i
+                                    class="fa fa-trash" aria-hidden="true"></i></button></a>
+                            </div>
+                          </div>
+
+                        </td>
+                      </tr>
+                      {{/blog}}
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="verifiedblog" class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">All Verified Blogs</h4>
+                  <br>
+                  <table id="verified" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="font-weight: bold"> No </th>
+                        <th style="font-weight: bold"> Name </th>
+                        <th style="font-weight: bold"> Blog Title </th>
+                        <th style="font-weight: bold"> Image</th>
+                        <th style="font-weight: bold"> Category </th>
+                        <th style="font-weight: bold"> Description</th>
+                        <th style="font-weight: bold"> Status</th>
+                        <th style="font-weight: bold">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each verifiedBlog}}
+                      <tr>
+                        <td style="font-weight: bold">{{@index}}</td>
+                        <td>{{user}} </td>
+                        {{#blog}}
+                        <td class="ellipsis">{{title}} </td>
+                        <td> <img src="{{image}}" style="width: 50px; height: 50px; border-radius: 5px;"></td>
+                        <td>{{category}}</td>
+                        <td>
+                          <div class="ellipsis">
+                            {{{discription}}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="badge badge-success p-2">Verified</div>
+                        </td>
+                        <td>
+                          <div class="oneline">
+                            <a href="/views/{{_id}}"><button type="button"
+                                class="btn btn-outline-primary btn-rounded btn-sm" style="margin-right: 5px;"><i
+                                  class="fa fa-eye" aria-hidden="true"></i></button></a>
+                            <form action="/updatestatus/{{_id}}" method="post">
+                              <input type="hidden" name="status" value="unverified">
+                              <button type="submit" class="btn btn-outline-danger btn-rounded btn-sm"
+                                style="margin-right: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button>
+                            </form>
+                            <a href="/delete/{{_id}}"><button type="button"
+                                class="btn btn-outline-danger btn-rounded btn-sm" style="margin-right: 5px;"><i
+                                  class="fa fa-trash" aria-hidden="true"></i></button></a>
+                          </div>
+
+                        </td>
+                      </tr>
+                      {{/blog}}
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+        {{>footer}}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/misc.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+    integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#dtBasicExample').DataTable({
+
+        "pagingType": "first_last_numbers",
+      });
+      $('.dataTables_length').addClass('bs-select');
+      $('#Unverified').DataTable({
+
+        "pagingType": "first_last_numbers",  // "simple" option for 'Previous' and 'Next' buttons only
+      });
+      $('.dataTables_length').addClass('bs-select');
+      $('#verified').DataTable({
+
+        "pagingType": "first_last_numbers",  // "simple" option for 'Previous' and 'Next' buttons only
+      });
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
+  <script>
+    $(window).on('load', function () {
+
+      $('#js-preloader').addClass('loaded');
+
+    });
+  </script>
+
+</body>
+
+</html>

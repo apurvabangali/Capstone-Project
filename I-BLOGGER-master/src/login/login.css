@@ -1,0 +1,468 @@
+
+
+/* Bordered form */
+/* form {
+    border: 3px solid #f1f1f1;
+    box-shadow: 8px 8px 15px gray;
+    margin-top: 100px;
+  } */
+  
+  /* Full-width inputs */
+  /* input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  } */
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    border-radius: 10px;
+  }
+  .cancelbtn2 {
+    width: auto;
+    margin-left: 20px;
+    padding: 10px 18px;
+    background-color: #3498bd;
+    border-radius: 10px;
+  
+  }
+  .genderflex{
+    display: flex;
+  }
+  
+   .maleflex{
+     display: flex;
+     margin-right: 20px;
+   }
+   .rediodown{
+     margin-top: 8px;
+     margin-left: 5px;
+   }
+
+  /* Center the avatar image inside this container */
+  .imgcontainer1 {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 50%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container1 {
+    padding: 5px;
+    
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+   
+  }
+  .psw{
+    text-decoration: none;
+    color: black;
+  }
+  .password{
+    text-decoration: none;
+    color: black;
+  }
+  /* .background{
+    background-color: rgb(252, 206, 120);
+    height: 660px;
+  } */
+
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+  
+  .main{
+        width: 400px;
+        justify-content: center;
+        /* background-image: url('../public/image/bg2.jpg'); */
+        background-color: white;
+        background-position: center;
+        /* border-left: 3px solid black; */
+       
+        /* background: transparent; */
+        /* margin-left: 600px; */
+        
+        /* margin-top: 100px; */
+       
+  }
+  
+  .full{
+     background-color:white;
+     /* height: 700px; */
+    /* height: 700px; */
+    width: 1200px;
+  margin-left: 160px;
+  margin-top: 90px
+  }
+  
+  .text{
+    border-radius: 10px;
+    width: 100%;
+    padding: 6px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .main1{
+    display: flex;
+    justify-content: center;
+    /* box-shadow: 8px 8px  15px gray; */
+  box-shadow: 4px 4px  15px gray;
+
+   
+    
+  }
+  .gif{
+    /* margin-top: 100px; */
+    /* box-shadow: 8px 8px 15px gray;  */
+    height: 640px;
+    width: 640px;
+  }
+  
+  /* .basecont{
+    background-color: black;
+  } */
+  
+  .animatimg{
+    height: 450px;
+    width: 450px;
+    margin-top: 100px;
+  }
+  
+  .p{
+    text-align: center;
+  }
+ .rgif{
+   
+   padding-right: 150px;
+ }
+ .pcpass1{
+   height: 200px;
+   width: 350px;
+ }
+
+ .btt{
+   width: auto;
+   border-radius: 10px;
+ }
+ .btt1{
+   width: auto;
+   background-color: #f44336;
+   margin-left: 20px;
+   border-radius: 10px;
+
+ }
+.bcontainer{
+  margin: 10px;
+  box-sizing:content-box;
+  box-shadow: 4px 4px  15px gray;
+  /* box-shadow: 8px 8px  15px gray; */
+  margin-left: 15px;
+  justify-content: center;
+}
+.bmain{
+  /* margin: 10px; */
+  /* margin-top: 10px; */
+  padding: 10px;
+
+}
+.text1{
+  border-radius: 10px;
+    width: 100%;
+    padding: 6px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.text2{
+  background-color:#3498bd;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+  width: 100%;
+  padding: 6px 20px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.otp{
+  display: flex;
+ 
+}
+.padding {
+  padding: 3rem !important;
+  margin-left: 200px;
+}
+
+.card-img-top {
+  height: 300px
+}
+.card{
+  box-shadow: 4px 4px  15px gray;
+  display: flex;
+  /* border-radius: 10px; */
+
+}
+
+.card-no-border .card {
+  border-color: #d7dfe3;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem
+}
+
+.pro-img {
+  margin-top: -80px;
+  margin-bottom: 20px
+}
+.img100{
+  width: 128px;
+  height: 128px;
+}
+.img100:hover {
+   transform: scale(1.3);
+   
+}
+/* .dropdowncontent a{
+  display:inline-block ;
+}  */
+/* .img200:hover .dropdowncontent{
+  display: block;
+} */
+ 
+
+.little-profile .pro-img img {
+
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 100%
+}
+
+html body .m-b-0 {
+  margin-bottom: 0px
+}
+
+h3 {
+  line-height: 30px;
+  font-size: 21px
+}
+
+.ellipsis {
+  overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+max-height: 50px;
+-webkit-line-clamp: 2;
+}
+
+.mexport{
+  text-align: center;
+  /* border: 1px solid black; */
+  width: 400px;
+  padding-top:20px ;
+  padding-bottom: 20px;
+  border-radius: 10px;
+margin-left: 550px;
+box-shadow: 2px 2px 20px lightgrey;
+}
+.in{
+  /* border-radius: 5px; */
+}
+/* .export{
+align-items: center;
+} */
+
+
+
+.btn-rounded.btn-md {
+  padding: 12px 35px;
+  font-size: 16px
+}
+.btn-primary,
+.btn-primary.disabled {
+    background: #7460ee;
+    border: 1px solid #7460ee;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+    -webkit-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in
+}
+
+.btn-rounded {
+    border-radius: 60px;
+    padding: 7px 18px
+}
+
+.m-t-20 {
+    margin-top: 20px
+}
+.text-center {
+  text-align: center !important
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #455a64;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+small{
+  cursor: pointer;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem
+}
+.img10{
+  width: 50px;
+  height: 50px;
+  /* padding:20px; */
+  margin-left: 20px;
+}
+.pencil{
+  width: 25px;
+  height:25px;
+}
+.basecont5{
+  margin-top: 150px;
+}
+.container10{
+  margin-top: 20px;
+}
+.img10{
+  width: 50px;
+  height: 50px;
+  /* padding:20px; */
+  margin-left: 20px;
+  
+}
+.text11{
+  border-radius: 10px;
+    width: 100%;
+    padding: 6px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    /* display: none; */
+}
+
+.pencil2{
+  width: 45px;
+  height:45px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 40px;
+  cursor: pointer;
+  /* border: 1px solid black; */
+}
+.pencil3{
+  width: 55px;
+  height:55px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+.edit{
+  display: flex;
+}
+/* input{
+  caret-color: orange;
+} */
+
+
+
+
+
+/* { user.map((val) => {
+  console.log("abc", val)
+   return(  
+  <div>
+   <img class="card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap"/>
+  <div class="card-body little-profile text-center">
+      <div class="pro-img"><img src="https://i.imgur.com/8RKXAIV.jpg" alt="user"/></div>
+      <h3 class="m-b-0">{val._id.name}</h3>
+      <p>{val._id.email}</p>
+      <div class="row text-center m-t-20">
+          <div class="col-lg-3 col-md-4 m-t-20" onClick={()=>{
+                  navigate('/userblog')
+              }}>
+              <h3 class="m-b-0 font-light" >{val._id.blog}</h3><small >Blog</small>
+          </div>
+          <div class="col-lg-3 col-md-4 m-t-20" onClick={()=>{
+              navigate('/createblog')
+          }}>
+              <h3 class="m-b-0 font-light">+</h3><small>Create Blog</small>
+          </div>
+          <div class="col-lg-3 col-md-4 m-t-20">
+              <h3 class="m-b-0 font-light">545</h3><small>Like</small>
+          </div>
+          <div class="col-lg-3 col-md-4 m-t-20" onClick={()=>{navigate('/updateprofile')}}>
+              <h3 class="m-b-0 font-light"><img className='pencil' src='./image/pencil2.png' /></h3><small>Update Profile</small>
+          </div>
+      </div>
+  </div>
+  </div>
+  )
+  })} */
